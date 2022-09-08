@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<meta charset="UTF-8">
+<title>CHANNELS </title>
+{% endblock %}
+
+
+
+{% block body %}
+    <center style="background:linear-gradient(#00796B, #00bb7b)">
+        <img src="https://ineuron.ai/images/ineuron-logo.png" style="width:300px;height:100px;">
+    <h1 style="color: white">YOUTUBE ANALYSIS</h1>
+    <p style="color: white">:-BY APOORV JAIN STUDENT OF INEURON </p>
+</center>
+<center>
+    <div style="max-width :70%; background : white">
+<h1>Channel List </h1>
+        <table style="padding: 15px; ">
+            <tr>
+                <th style="padding: 10px;">
+                    CHANNEL NAME
+                </th>
+                <th>
+                     TOTAL VIEWS
+                </th >
+                <th style="padding: 10px;">
+                    TOTAL SUBSCRIBER
+                </th>
+                <th style="padding: 10px;">
+                    TOTAL VIDEOS
+                </th>
+            </tr>
+
+        {% for i in var%}
+
+            <div>
+            <tr>
+
+                                <td style="padding: 5px;">
+            <a href="{{i['channelid']}}">       {{i['channel_name']}} </a>
+
+                </td>
+
+                                <td>
+                   {{i['view_count']}}
+
+                </td>
+                                <td>
+                   {{i['subscriber_count']}}
+
+                </td>
+                               <td>
+                   {{i['videocount']}}
+
+                </td>
+
+            </tr>
+                </div>
+
+
+
+        {%endfor%}
+        </table>
+{% endblock %}

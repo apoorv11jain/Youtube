@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<meta charset="UTF-8">
+<title>YOUTUBE ANALYSIS</title>
+{% endblock %}
+
+
+
+{% block body %}
+    <center style="background:linear-gradient(#00796B, #00bb7b)">
+        <img src="https://ineuron.ai/images/ineuron-logo.png" style="width:300px;height:100px;">
+    <h1 style="color: white">YOUTUBE ANALYSIS</h1>
+    <p style="color: white">:-BY APOORV JAIN STUDENT OF INEURON </p>
+    </center>
+<center>
+    <div style="max-width :90%; background : white">
+<h1>Youtube Analytics form</h1>
+        <form action="/youtube_path"  method = "POST">
+            <table>
+                <tr >
+                    <td >
+                        <table >
+                            <tr >
+                                <td >
+                                    YOUTUBE VIDEO LINK
+                                </td>
+                                <td>
+                                   <input type="text" name ='url' id = 'url'>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+
+                                </td>
+                                <td>
+                                    <input type="submit">
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            </form>
+
+
+        <br>
+        <br>
+        <br>
+
+<a href="/list_channel"> CLICK HERE TO SEE ALREADY SAVED DATA</a>
+        </div>
+</center>
+
+
+{% endblock %}

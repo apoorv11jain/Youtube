@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<meta charset="UTF-8">
+<title>VIDEOS</title>
+{% endblock %}
+
+
+
+{% block body %}
+    <div style="background:linear-gradient(#00796B, #00bb7b)">
+        <table>
+            <tr>
+                <td>
+                    <img src="https://ineuron.ai/images/ineuron-logo.png" style="width:300px;height:100px;" >
+                </td>
+                <td><center>
+                     <h1 style="color: white">YOUTUBE ANALYSIS</h1>
+                     <p style="color: white">:-BY APOORV JAIN STUDENT OF INEURON </p>
+                </center>
+                </td>
+            </tr>
+        </table>
+</div>
+
+    <div style="max-width :70%; background : white">
+<center><h1>VIDEO LIST </h1></center>
+<table>
+{% for i in var%}
+
+    <tr>
+        <td style="padding:10px;">
+            <img src="{{i['img_url']}}" style="width:200px;height:200px;">
+        </td>
+        <td>
+            <table>
+                <tr><td>
+                    <a href="videos/{{i['video_id']}}">
+                            {{i['Title']}}
+                    </a>
+                    </td>
+                </tr>
+
+                <tr><td>
+                    views : {{i['Views']}}
+                </td>
+                </tr>
+
+                <tr>
+                    <td>Likes : {{i['Likes']}}</td>
+                </tr>
+
+                <tr>
+                    <td>Comments: {{i['comments']}}</td>
+                </tr>
+
+                <tr><td>
+                    <a href="{{i['video_link']}}">
+                        CLICK HERE TO GO TO YOUTUBE CHANNEL
+                    </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href = "download/{{i['video_id']}}">
+                            CLICK HERE TO DOWNLOAD VIDEO
+                        </a>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href = "image/{{i['video_id']}}">
+                            CLICK HERE TO SEE THE IMAGE IN BASE64
+                        </a>
+
+
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+        {%endfor%}
+        </table>
+{% endblock %}
