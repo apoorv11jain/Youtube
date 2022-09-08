@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request,redirect
+from flask import Flask, render_template, request,redirect,send_file
 from googleapiclient.discovery import build
 from channel_info import get_channel_stats
 from videoID import get_video_id
@@ -7,6 +7,7 @@ from comments import get_comment_table
 from save_images import save_image
 from pytube import YouTube
 import pymongo
+from io import BytesIO
 import logging
 logging.basicConfig(filename="login.log", level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 
@@ -152,11 +153,13 @@ def download_video(path):
     :return: NONE redirect to the /list_channel
     '''
     try:
+        buffer = BytesIO()
         path = 'https://www.youtube.com/watch?v='+path
         video = YouTube(path)
         video = video.streams.get_highest_resolution()
-        video.download()
-        return redirect('/list_channel')
+        video.stream_to_buffer(buffer)
+        buffer.seek(0)
+        return send_file(buffer, as_attachment = True, download_name= 'video.mp4', mimetype='video/mp4')
     except Exception as e:
         logging.error(e)
         return render_template('error.html')
@@ -169,7 +172,7 @@ def image(path):
         a = coll.find()
         for i in a:
             if i['video_Id'] == path:
-                return render_template('images.html',img =img, image= i['img_base64_encoded'])
+                return render_template('images.html', image= i['img_base64_encoded'])
         return render_template('base.html')
     except Exception as e:
         logging.error(e)
