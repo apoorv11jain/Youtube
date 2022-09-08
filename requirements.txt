@@ -14,22 +14,18 @@ google-auth-httplib2==0.1.0
 googleapis-common-protos==1.56.3
 gunicorn==20.1.0
 httplib2==0.20.4
-idna @ file:///tmp/build/80754af9/idna_1637925883363/work
 importlib-metadata==4.8.3
 itsdangerous==2.0.1
 Jinja2==3.0.3
 MarkupSafe==2.0.1
-mysql-connector-python==8.0.30
 protobuf==3.19.4
 psycopg2==2.9.3
-pyasn1 @ file:///Users/ktietz/demo/mc3/conda-bld/pyasn1_1629708007385/work
 pyasn1-modules==0.2.8
 pymongo==4.1.1
 pyparsing==3.0.9
 pytube==12.1.0
 requests==2.27.1
 rsa==4.9
-six @ file:///tmp/build/80754af9/six_1644875935023/work
 soupsieve==2.3.2.post1
 typing_extensions==4.1.1
 uritemplate==4.1.1
